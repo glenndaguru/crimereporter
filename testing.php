@@ -2,8 +2,8 @@
 
 	// Connection
 	$servername = "127.6.180.130";
-	$username = "adminD35M7Lk";
-	$password = "M1iBd32D8Hdt";
+	$username = "admintbjr2MK";
+	$password = "n8C785aaSHi7";
 	$dbname = "evoting";
 	
 
