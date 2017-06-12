@@ -23,7 +23,7 @@
 	$userPass = "1234";
 	
 	// Selecting User ID, check if user exists
-	$sql = "SELECT * FROM Users WHERE userIDNo='".$userIDNo."' AND userPass='".md5($userPass)."'";
+	$sql = "SELECT * FROM Users";
 	$result = mysqli_query($conn,$sql) or die("Error in $sql:" . mysqli_error($conn));	
 	if(mysqli_num_rows($result) > 0)
 	{
