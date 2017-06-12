@@ -14,6 +14,10 @@
 	{
 		die("Connection failed: " . $conn->connect_error);
 	} 
+	else
+	{
+		echo "Finally connected";
+	}
 	
 	mysqli_close($conn);
 	
