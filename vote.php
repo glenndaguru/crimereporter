@@ -13,9 +13,9 @@
 	global $theDate;
 
 	// Connection
-	$servername = "127.4.48.2";
-	$username = "adminD35M7Lk";
-	$password = "M1iBd32D8Hdt";
+	$servername = "127.6.180.130";
+	$username = "admintbjr2MK";
+	$password = "n8C785aaSHi7";
 	$dbname = "evoting";
 		
 	// Create connection
