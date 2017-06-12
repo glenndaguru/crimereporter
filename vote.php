@@ -42,30 +42,37 @@
 		$GLOBALS['partyVotes'] = $row->partyVotes;
 	} 
 	
-	//calculate value 
-	$GLOBALS['partyVotes'] = $GLOBALS['partyVotes'] + 1;
-	
-	//set the date
-	$GLOBALS['theDate'] = date("Y/m/d");
-	
-	//$mysql = "UPDATE USERFILE SET userLastReplaced ='".$replaced_date."' WHERE file_path ='".$file_name."'AND file_name='".basename($file_name)."'AND user_email='".$GLOBALS['user_email']."'AND ip_address='".$GLOBALS['web_address']."'";
-	
-	//Update User Table
-	$sql = "UPDATE Users SET userStatus='".$GLOBALS['userStatus']."' WHERE userIDNo='".md5($userIDNo)."' AND userPass='".md5($userPass)."'";
-	if (!mysqli_query($conn, $sql)) 
+	if($GLOBALS['userStatus'] = 0)
 	{
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}	
-	
-	// Update Vote Table
-	$sql = "UPDATE User_Vote SET partyVotes='".$GLOBALS['partyVotes']."', voteDate='".$GLOBALS['partyVotes']."' WHERE partyID='".$userCandi."'";
-	if (!mysqli_query($conn, $sql)) 
-	{
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		//calculate value 
+		$GLOBALS['partyVotes'] = $GLOBALS['partyVotes'] + 1;
+		
+		//set the date
+		$GLOBALS['theDate'] = date("Y/m/d");
+		
+		//$mysql = "UPDATE USERFILE SET userLastReplaced ='".$replaced_date."' WHERE file_path ='".$file_name."'AND file_name='".basename($file_name)."'AND user_email='".$GLOBALS['user_email']."'AND ip_address='".$GLOBALS['web_address']."'";
+		
+		//Update User Table
+		$sql = "UPDATE Users SET userStatus='".$GLOBALS['userStatus']."' WHERE userIDNo='".md5($userIDNo)."' AND userPass='".md5($userPass)."'";
+		if (!mysqli_query($conn, $sql)) 
+		{
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		}	
+		
+		// Update Vote Table
+		$sql = "UPDATE User_Vote SET partyVotes='".$GLOBALS['partyVotes']."', voteDate='".$GLOBALS['partyVotes']."' WHERE partyID='".$userCandi."'";
+		if (!mysqli_query($conn, $sql)) 
+		{
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		}
+		else
+		{
+			$myObj->result = "Vote has been successfully cast";
+		}
 	}
 	else
 	{
-		$myObj->result = "Vote has been successfully cast";
+		$myObj->result = "User can only vote once";
 	}
 	
 	$myJobj = json_encode($myObj);
