@@ -14,19 +14,17 @@
 		die("Connection failed: " . $conn->connect_error);
 	} 
 
-	// Selecting User ID, check if user exists
+	// List all data from parties
+	$rows = array();
 	$sql = "SELECT * FROM Parties";
 	$result = mysqli_query($conn,$sql) or die("Error in $sql:" . mysqli_error($conn));	
-	if(mysqli_num_rows($result) > 0)
+	
+	while($row = mysqli_fetch_assoc($result)) 
 	{
-		$myObj->result = 1;
-	}
-	else
-	{
-		$myObj->result = 0;
+		$rows[] = $row;
 	}
 	
-	$myJobj = json_encode($myObj);
+	$myJobj = json_encode(array('Parties'=> $rows));
 	echo $myJobj."\n";
 	
 	
