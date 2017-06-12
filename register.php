@@ -24,7 +24,7 @@
 	} 
 	
 	// Insert Into User Table
-	$sql = 'INSERT INTO Users'.'(userIDNo,userSex,userStatus,userName,userSur,userAdd,userEmail,userPass)'.'VALUES ("'.md5($userIDNo).'","'.$userSex.'","'.$userStatus.'","'.$userName.'","'.$userSur.'","'.$userAdd.'", "'.$userEmail.'","'.md5($userPass).'")';
+	$sql = 'INSERT INTO Users'.'(userIDNo,userSex,userStatus,userName,userSur,userAdd,userEmail,userPass)'.'VALUES ("'.$userIDNo.'","'.$userSex.'","'.$userStatus.'","'.$userName.'","'.$userSur.'","'.$userAdd.'", "'.$userEmail.'","'.md5($userPass).'")';
 	if (!mysqli_query($conn, $sql)) 
 	{
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
