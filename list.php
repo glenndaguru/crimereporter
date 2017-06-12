@@ -6,7 +6,6 @@
 	$password = "n8C785aaSHi7";
 	$dbname = "evoting";
 	
-
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 		
@@ -14,22 +13,23 @@
 	{
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	else
-	{
-		echo "Finally connected"."\n";
-	}
 
 	// Selecting User ID, check if user exists
 	$sql = "SELECT * FROM Parties";
 	$result = mysqli_query($conn,$sql) or die("Error in $sql:" . mysqli_error($conn));	
-	while($row = mysqli_fetch_object($result)) {
-	      $myJobj->id = $row->partyID;
-	      $myJobj->name = $row->partyName;
-	      $myJobj->abv = $row->partyABV;
+	if(mysqli_num_rows($result) > 0)
+	{
+		$myObj->result = 1;
+	}
+	else
+	{
+		$myObj->result = 0;
 	}
 	
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
+	
+	
 	
 	mysqli_close($conn);
 	
