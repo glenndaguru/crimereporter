@@ -29,7 +29,7 @@
 		$rows[] = $row;
 	}
 	
-	$myJobj = json_encode($rows);
+	$myJobj = json_encode(array('Parties'=> $rows));
 	echo $myJobj."\n";
 	
 	mysqli_close($conn);
