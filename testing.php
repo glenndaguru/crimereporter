@@ -18,7 +18,6 @@
 	{
 		echo "Finally connected";
 	}
-	
 	mysqli_close($conn);
 	
 ?>
