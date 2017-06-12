@@ -20,15 +20,16 @@
 	}
 
 	// Selecting User ID, check if user exists
+	$rows = array();
 	$sql = "SELECT * FROM Parties";
 	$result = mysqli_query($conn,$sql) or die("Error in $sql:" . mysqli_error($conn));	
-	while($row = mysqli_fetch_object($result)) {
-	      $myJobj->id = $row->partyID;
-	      $myJobj->name = $row->partyName;
-	      $myJobj->abv = $row->partyABV;
+	
+	while($row = mysqli_fetch_assoc($result)) 
+	{
+		$rows[] = $row;
 	}
 	
-	$myJobj = json_encode($myObj);
+	$myJobj = json_encode($rows);
 	echo $myJobj."\n";
 	
 	mysqli_close($conn);
