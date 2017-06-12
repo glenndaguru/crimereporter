@@ -19,7 +19,7 @@
 		echo "Finally connected"."\n";
 	}
 	
-	$userEmail = "00000000000000";
+	$userEmail = "0000000000000";
 	$userPass = "1234";
 	
 	// Selecting User ID, check if user exists
