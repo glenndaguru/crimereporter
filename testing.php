@@ -1,7 +1,7 @@
 <?php
 
 	// Connection
-	$servername = "127.4.48.2";
+	$servername = "127.6.180.130";
 	$username = "adminD35M7Lk";
 	$password = "M1iBd32D8Hdt";
 	$dbname = "evoting";
