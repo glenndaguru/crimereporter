@@ -49,7 +49,7 @@
 		$GLOBALS['partyVotes'] = $GLOBALS['partyVotes'] + 1;
 		
 		//set the date
-		$GLOBALS['theDate'] = date("Y/m/d");
+		$GLOBALS['theDate'] = date("Y-m-d");
 		
 		$GLOBALS['userStatus'] = 1;
 		
