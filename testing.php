@@ -44,23 +44,17 @@
 	
 	if($GLOBALS['userStatus'] == 0)
 	{
-		echo "We are about to vote";
-	}
-	
-	//This thing is lying
-	/*
-	if($GLOBALS['userStatus'] = 0)
-	{
 		//calculate value 
 		$GLOBALS['partyVotes'] = $GLOBALS['partyVotes'] + 1;
 		
 		//set the date
 		$GLOBALS['theDate'] = date("Y/m/d");
 		
+		echo $GLOBALS['partyVotes'];
 		//$mysql = "UPDATE USERFILE SET userLastReplaced ='".$replaced_date."' WHERE file_path ='".$file_name."'AND file_name='".basename($file_name)."'AND user_email='".$GLOBALS['user_email']."'AND ip_address='".$GLOBALS['web_address']."'";
 		
 		//Update User Table
-		$sql = "UPDATE Users SET userStatus='".$GLOBALS['userStatus']."' WHERE userIDNo='".md5($userIDNo)."' AND userPass='".md5($userPass)."'";
+		/*$sql = "UPDATE Users SET userStatus='".$GLOBALS['userStatus']."' WHERE userIDNo='".md5($userIDNo)."' AND userPass='".md5($userPass)."'";
 		if (!mysqli_query($conn, $sql)) 
 		{
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -75,16 +69,13 @@
 		else
 		{
 			$myObj->result = "Vote has been successfully cast";
-		}
+		}*/
 	}
 	else
 	{
 		$myObj->result = "User can only vote once";
-	}*/
+	}
 	
-	
-	
-	$myObj->result = $GLOBALS['userStatus'];
 	
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
