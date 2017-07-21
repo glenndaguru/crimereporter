@@ -61,7 +61,7 @@
 		}	
 		
 		// Update Vote Table
-		$sql_vote = "UPDATE User_Vote SET partyVotes='".$GLOBALS['partyVotes']."', voteDate='".$GLOBALS['partyVotes']."' WHERE partyID='".$userCandi."'";
+		$sql_vote = "UPDATE User_Vote SET partyVotes='".$GLOBALS['partyVotes']."', voteDate='".$GLOBALS['theDate']."' WHERE partyID='".$userCandi."'";
 		if (!mysqli_query($GLOBALS['conn'], $sql_vote)) 
 		{
 			echo "Error: " .$sql_vote. "<br>" . mysqli_error($GLOBALS['conn']);
