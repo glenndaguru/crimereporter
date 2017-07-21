@@ -42,6 +42,10 @@
 		$GLOBALS['partyVotes'] = $row->partyVotes;
 	} 
 	
+	if($GLOBALS['userStatus'] == 0)
+	{
+		echo "We are about to vote";
+	}
 	
 	//This thing is lying
 	/*
