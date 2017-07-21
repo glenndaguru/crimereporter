@@ -50,18 +50,20 @@
 		//set the date
 		$GLOBALS['theDate'] = date("Y/m/d");
 		
+		echo $GLOBALS['theDate'];
+		
 		//Update User Table
-		sql = "UPDATE Users SET userStatus='".$GLOBALS['userStatus']."' WHERE userIDNo='".md5($userIDNo)."' AND userPass='".md5($userPass)."'";
-		if (!mysqli_query($conn, $sql)) 
+		$sql_user = "UPDATE Users SET userStatus='".$GLOBALS['userStatus']."' WHERE userIDNo='".md5($userIDNo)."' AND userPass='".md5($userPass)."'";
+		if (!mysqli_query($conn, $sql_user)) 
 		{
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			echo "Error: " . $sql_user . "<br>" . mysqli_error($conn);
 		}	
 		
 		// Update Vote Table
-		$sql = "UPDATE User_Vote SET partyVotes='".$GLOBALS['partyVotes']."', voteDate='".$GLOBALS['partyVotes']."' WHERE partyID='".$userCandi."'";
-		if (!mysqli_query($conn, $sql)) 
+		$sql_vote = "UPDATE User_Vote SET partyVotes='".$GLOBALS['partyVotes']."', voteDate='".$GLOBALS['partyVotes']."' WHERE partyID='".$userCandi."'";
+		if (!mysqli_query($conn, $sql_vote)) 
 		{
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			echo "Error: " .$sql_vote. "<br>" . mysqli_error($conn);
 		}
 		else
 		{
