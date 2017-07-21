@@ -73,7 +73,6 @@
 		$myObj->result = "User can only vote once";
 	}
 	
-	
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
 	
