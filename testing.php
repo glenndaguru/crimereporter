@@ -50,7 +50,7 @@
 		//set the date
 		$GLOBALS['theDate'] = date("Y/m/d");
 		
-		echo $GLOBALS['partyVotes'];
+		echo $GLOBALS['theDate'];
 		//$mysql = "UPDATE USERFILE SET userLastReplaced ='".$replaced_date."' WHERE file_path ='".$file_name."'AND file_name='".basename($file_name)."'AND user_email='".$GLOBALS['user_email']."'AND ip_address='".$GLOBALS['web_address']."'";
 		
 		//Update User Table
