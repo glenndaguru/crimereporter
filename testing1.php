@@ -41,7 +41,7 @@
 	$result1 = mysqli_query($GLOBALS['conn'],$sql1) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	$rows = resultToArray($result1);
 	
-	$myJobj = json_encode("result"=>$rows);
+	$myJobj = json_encode(array('results' =>$rows));
 	echo $myJobj."\n";
 	
 	mysqli_close($GLOBALS['conn']);
