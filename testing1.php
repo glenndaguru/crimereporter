@@ -30,7 +30,7 @@
 	$theID = array ();
 	while($row = mysqli_fetch_array($result1))
 	{
-		array_push($theID, $row["partyID"]);
+		$theID[] =  $row["partyID"]);
 	} 
 	echo $theID;
 	
