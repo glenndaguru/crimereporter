@@ -1,5 +1,7 @@
 <?php
-
+	//Values
+	global $count_voters;
+	
 	// Connection
 	$servername = "127.6.180.130";
 	$username = "admintbjr2MK";
@@ -19,7 +21,9 @@
 	$result = mysqli_query($GLOBALS['conn'],$sql) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	$data= mysqli_fetch_assoc($result);
 	
-	$myObj->result = $data['Voters'];
+	$GLOBALS['count_voters'] = $data['Voters'];
+	
+	$myObj->result = $GLOBALS['count_voters'];
 	
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
