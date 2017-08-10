@@ -19,8 +19,10 @@
 	$result = mysqli_query($GLOBALS['conn'],$sql) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	$data= mysql_fetch_assoc($result);
 	
-	echo "Here we are";
-	echo $data;
+	$myObj->result = $data;
+	
+	$myJobj = json_encode($myObj);
+	echo $myJobj."\n";*/
 	
 	
 	/*
@@ -73,8 +75,7 @@
 		$myObj->result = "User can only vote once";
 	}
 	
-	$myJobj = json_encode($myObj);
-	echo $myJobj."\n";*/
+*/
 	
 	mysqli_close($GLOBALS['conn']);
 
