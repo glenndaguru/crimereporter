@@ -25,17 +25,16 @@
 	$GLOBALS['count_voters'] = $data['Voters'];
 	
 	//Calculate votes
-	echo "About to calculate"."\n";
+	$theID = array ();
+	$theVotes = array ();
 	$sql1 = "SELECT partyID, ROUND(partyVotes/'".$GLOBALS['count_voters']."' *100,0) AS total_votes FROM  `User_Vote` ORDER BY total_votes DESC";
 	$result1 = mysqli_query($GLOBALS['conn'],$sql1) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	while($row = mysqli_fetch_array($result1))
 	{
-		$GLOBALS['partyID'] = $row["partyID"];
-		$GLOBALS['total_votes'] = $row["total_votes"];
-		
-		$myObj->result = $GLOBALS['total_votes'];
+		$theID($row["partyID"]=>$row["total_votes"]);
 	} 
 	echo "Done";
+	$myObj->result = $theID;
 	
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
