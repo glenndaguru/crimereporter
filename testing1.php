@@ -32,7 +32,7 @@
 	{
 		array_push($theID, $row["partyID"]);
 	} 
-	echo $THEid;
+	echo $theID;
 	
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
