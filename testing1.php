@@ -22,9 +22,9 @@
 	$myObj->result = $data;
 	
 	$myJobj = json_encode($myObj);
-	echo $myJobj."\n";*/
+	echo $myJobj."\n";
 	
-	
+	mysqli_close($GLOBALS['conn']);
 	/*
 	//Check if user has voted. (Check status on user table)
 	//If yes then don't allow to vote else allow to vote. (Update status on user Table,  Get the current value of the votes and add the value)
@@ -77,6 +77,6 @@
 	
 */
 	
-	mysqli_close($GLOBALS['conn']);
+
 
 ?>
