@@ -25,14 +25,15 @@
 	$GLOBALS['count_voters'] = $data['Voters'];
 	
 	//Calculate votes
+	echo "About to calculate";
 	$sql1 = "SELECT partyID, ROUND(partyVotes/'".$GLOBALS['count_voters']."' *100,0) AS total_votes FROM  `User_Vote` ORDER BY total_votes DESC";
 	$result1 = mysqli_query($GLOBALS['conn'],$sql1) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	while($row = mysqli_fetch_assoc($result1))
 	{
-		echo $row->partyID;
-		echo $row->total;
+		echo $row["partyID"];
+		echo $row["total_votes"];
 	} 
-	
+	echo "Done";
 	
 	$myObj->result = $GLOBALS['partyID'];
 	$myObj->result = $GLOBALS['total_votes'];
