@@ -30,14 +30,12 @@
 	$result1 = mysqli_query($GLOBALS['conn'],$sql1) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	while($row = mysqli_fetch_assoc($result1))
 	{
-		echo $row["partyID"]."\n";
-		echo $row["total_votes"]."\n";
+		$myObj->result = $row['partyID'];
+		$myObj->result = $row['total_votes'];
 	} 
 	echo "Done";
 	
-	$myObj->result = $GLOBALS['partyID'];
-	$myObj->result = $GLOBALS['total_votes'];
-	
+
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
 	
