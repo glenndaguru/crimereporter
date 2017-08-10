@@ -17,8 +17,9 @@
 	//Calculate the number of registered voters and return a %
 	$sql = "SELECT count(user_id) FROM Users";
 	$result = mysqli_query($GLOBALS['conn'],$sql) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
-	$data=mysql_fetch_assoc($result);
+	$data= mysql_fetch_assoc($result);
 	
+	echo "Here we are";
 	echo $data;
 	
 	
