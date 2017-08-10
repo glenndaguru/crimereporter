@@ -43,7 +43,7 @@
 	
 	var_dump($rows);
 	
-	$myJobj = json_encode($myObj);
+	$myJobj = json_encode($rows);
 	echo $myJobj."\n";
 	
 	mysqli_close($GLOBALS['conn']);
