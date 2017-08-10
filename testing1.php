@@ -27,10 +27,10 @@
 	//Calculate votes
 	$sql = "SELECT partyID, ROUND(partyVotes/'".$GLOBALS['count_voters']."' *100,0) AS total_votes FROM  `User_Vote` ORDER BY total_votes DESC";
 	$result = mysqli_query($GLOBALS['conn'],$sql) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
-	while($row = mysqli_fetch_object($result))
+	while($row = mysqli_fetch_assoc($result))
 	{
-		$GLOBALS['partyID'] = $row->partyID;
-		$GLOBALS['total_votes'] = $row->total;
+		echo $row->partyID;
+		echo $row->total;
 	} 
 	
 	
