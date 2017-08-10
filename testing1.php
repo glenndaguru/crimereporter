@@ -30,8 +30,8 @@
 	$result1 = mysqli_query($GLOBALS['conn'],$sql1) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	while($row = mysqli_fetch_assoc($result1))
 	{
-		echo $row["partyID"];
-		echo $row["total_votes"];
+		echo $row["partyID"]."\n";
+		echo $row["total_votes"]."\n";
 	} 
 	echo "Done";
 	
