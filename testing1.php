@@ -32,6 +32,9 @@
 	{
 		$GLOBALS['partyID'] = $row["partyID"];
 		$GLOBALS['total_votes'] = $row["total_votes"];
+		
+		$myObj->result = $GLOBALS['partyID'];
+		$myObj->result = $GLOBALS['total_votes'];
 	} 
 	echo "Done";
 	
