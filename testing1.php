@@ -1,6 +1,8 @@
 <?php
 	//Values
 	global $count_voters;
+	global $total_votes;
+	global $partyID;
 	
 	// Connection
 	$servername = "127.6.180.130";
@@ -20,10 +22,20 @@
 	$sql = "SELECT count(user_id) AS Voters FROM Users WHERE userStatus = 1";
 	$result = mysqli_query($GLOBALS['conn'],$sql) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
 	$data= mysqli_fetch_assoc($result);
-	
 	$GLOBALS['count_voters'] = $data['Voters'];
 	
-	$myObj->result = $GLOBALS['count_voters'];
+	//Calculate votes
+	$sql = "SELECT partyID, ROUND(partyVotes/'".$GLOBALS['count_voters']."' *100,0) AS total_votes FROM  `User_Vote` ORDER BY total_votes DESC";
+	$result = mysqli_query($GLOBALS['conn'],$sql) or die("Error in $sql:" . mysqli_error($GLOBALS['conn']));	
+	while($row = mysqli_fetch_object($result))
+	{
+		$GLOBALS['partyID'] = $row->partyID;
+		$GLOBALS['total_votes'] = $row->total;
+	} 
+	
+	
+	$myObj->result = $GLOBALS['partyID'];
+	$myObj->result = $GLOBALS['total_votes'];
 	
 	$myJobj = json_encode($myObj);
 	echo $myJobj."\n";
