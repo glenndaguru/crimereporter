@@ -37,7 +37,7 @@
 	$GLOBALS['count_voters'] = $data['Voters'];
 	
 	//Calculate votes
-	$sql1 = "SELECT p.partyID, a.partyABV ,ROUND(p.partyVotes/'".$GLOBALS['count_voters']."' *100,0) AS total_votes 
+	$sql1 = "SELECT p.partyID as part_ID, a.partyABV as partyName,ROUND(p.partyVotes/'".$GLOBALS['count_voters']."' *100,0) AS total_votes 
 	FROM User_Vote p, Parties a 
 	WHERE p.partyID = a.partyID 
 	ORDER BY total_votes DESC";
